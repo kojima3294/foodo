@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: foodo_development
+
+test:
+  <<: *default
+  database: foodo_test
+
+
+production:
+  <<: *default
+  database: foodo_production
+  username: foodo
+  password: <%= ENV['FOODO_DATABASE_PASSWORD'] %>
