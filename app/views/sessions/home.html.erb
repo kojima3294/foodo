@@ -1,0 +1,29 @@
+<% provide(:title, "Home") %>
+<div>
+  <div class="main-content">
+    <h1 class="text-white bg-primary w-25 text-center rounded-pill">Foodo</h1> 
+    <div class="text-center w-25" >
+      <%= link_to  "新規登録", "/sessions/new", class: 'btn btn-info m-2' %>
+      <%= link_to  "ログイン", "/sessions/", class: 'btn btn-success m-2' %>
+    </div> 
+  </div>
+  <div class="sub-content container text-center">
+    <h1 class="text-white bg-info">Foodoとは</h1>
+    <p>幼児食と一言で言っても実際は年齢によっても違いが出てきますし、摂りたい栄養素を効率よく摂るにはどうしたらいいのかと悩むものです。</br>子どもによっても好き嫌いがあったり、食べムラがあるので、毎日の幼児食を決めるのに疲れてしまっているママやパパはたくさんいます。
+    </p>
+    <div class="row font-weight-bold">
+      <div class="col-xl-12 my-4">   
+        <h2>1週間分の献立が自動作成</h2>
+          <p> 月齢・何食/日を入力するだけで1週間分の献立がカンタン作成</p>
+      </div>
+      <div class="col-xl-12 my-4">
+        <h2>食材リストを一括表示</h2>
+          <p>献立から必要な食材リストを表示可能</p>
+      </div>
+      <div class="col-xl-12 my-4">
+        <h2>アレルギー食材は入れない等、要望可能</h2>
+          <p>アレルギー食材や嫌いな食材などを入力するだけで献立に入れないことも可能</p>
+      </div>  
+    </div>
+  </div>
+</div>
