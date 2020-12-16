@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params
 
   # GET /resource/sign_up
   def new
@@ -20,7 +20,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    @user = User.find_by(id: params[:id])
+    #画像データが送信された場合
+    if params[:image]
+      #データベースに保存するファイル名はユーザーのid.jpgとする
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    end
   end
 
   # DELETE /resource
@@ -38,7 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :birth_date, :password])
@@ -46,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:birth_date])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :birth_date, :image, :image_cache, :remove_image])
   end
 
   # The path used after sign up.

@@ -1,18 +1,13 @@
 <div class="login-content">
   <div>
+    <% if @user.image? %>                                                              
+      <%= image_tag @user.image.thumb.url %>
+    <% else %>
+      <%= image_tag("no-image.png") %>  
+    <% end %>
     <%= @user.name %>
     <h3>お子様の月齢：<%=@age%>ヶ月</h3>
   </div>
-
-  <div>
-    <h1>本日のごはん</h1>
-    <% @meals.shuffle.first(@eat_times).each do |meal| %>
-    <%= meal.image %>
-    <%= meal.name %>
-    <%= meal.foodstuff %>
-    <%= meal.recipe %>
-  </div>
-  
   <div>
     <h2>お食事メニュー</h2>
   </div>

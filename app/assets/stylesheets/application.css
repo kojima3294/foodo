@@ -16,3 +16,15 @@
   padding: 10px;
   text-align: center;
 }
+
+.footer{
+  height: 50px;
+
+}
+
+.circle-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

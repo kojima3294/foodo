@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  before_action :authenticate_user!, only: [:destroy,:create]
+  before_action :authenticate_user!, only: [:destroy]
   # before_action :configure_sign_in_params, only: [:create]
   
   # GET /resource/sign_in
@@ -14,15 +14,16 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+
   # DELETE /resource/sign_out
   def destroy
     super
   end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:birth_date])
-  end
+  # def configure_sign_in_params
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:birth_date])
+  # end
 end

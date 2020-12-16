@@ -2,6 +2,11 @@
 <% if user_signed_in? %>
   <div class="login-content">
     <div>
+      <% if @user.image? %>
+        <%= image_tag @user.image.thumb.url %>
+      <% else %>
+        <%= image_tag 'no-image.png' %>
+      <% end %>
       <%=link_to @user.name, session_path(@user) %>
       <h3>お子様の月齢：<%=@age%>ヶ月</h3>
     </div>
@@ -19,7 +24,7 @@
       </div> 
     </div>
     <div class="sub-content container text-center">
-      <h1 class="text-white bg-info">Foodoとは</h1>
+      <h1 class="text-white bg-info" id="about">Foodoとは</h1>
       <p>幼児食と一言で言っても実際は年齢によっても違いが出てきますし、摂りたい栄養素を効率よく摂るにはどうしたらいいのかと悩むものです。<br>子どもによっても好き嫌いがあったり、食べムラがあるので、毎日の幼児食を決めるのに疲れてしまっているママやパパはたくさんいます。
       </p>
       <div class="row font-weight-bold">
