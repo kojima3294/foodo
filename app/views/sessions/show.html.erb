@@ -1,14 +1,20 @@
 <div class="login-content">
   <div>
-    <% if @user.image? %>                                                              
+    <% if @user.image? %>
       <%= image_tag @user.image.thumb.url %>
     <% else %>
-      <%= image_tag("no-image.png") %>  
+      <%= image_tag("no-image.png") %>
     <% end %>
     <%= @user.name %>
     <h3>お子様の月齢：<%=@age%>ヶ月</h3>
   </div>
   <div>
     <h2>お食事メニュー</h2>
+    <div>
+      <% @packs.each do |pack| %>
+       <%= link_to pack.name, pack_path(id: pack.id) %>
+      <% end %>
+    </div>  
   </div>
 </div>
+      

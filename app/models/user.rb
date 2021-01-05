@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :packs, foreign_key: :user_id
+  
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable,:validatable
   mount_uploader :image, ImageUploader
@@ -9,5 +9,4 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :birth_date, presence: true
-  
 end

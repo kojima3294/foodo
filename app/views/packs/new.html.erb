@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>お食事メニュー</h2>
+  <div class="row">
+    <%= form_for(@pack) do |f| %>
+      <div>
+        <%= f.label :name, "献立名" %>
+        <%= f.text_field :name, value:"#{Time.current.to_date}作成(#{@count}食分)" %>
+      </div>
+      <div class="col">
+        <% @random.each do |menu| %>
+          <%= hidden_field_tag "user_id", current_user.id %>
+          <%= hidden_field_tag "menu_ids[]", menu.id %>
+          <%= menu.name %><br/>
+          <%= menu.recipe %><br/>
+          <%= menu.best_age %><br/>
+          <%= image_tag "/#{menu.image}" %>
+        <% end %>
+        <%= f.submit "保存" %>
+      </div>
+    <% end %>
+  </div>
+</div>

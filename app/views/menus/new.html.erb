@@ -1,0 +1,34 @@
+<% provide(:title, "メニュー作成")%>
+<div>
+  <h1>メニュー作成</h1>
+  <%= form_with url: new_pack_path, method: :get do |f| %>
+    <div>
+      <%= f.label :count, "作成食数" %>
+      <%= f.select :count, [*1..21] %>    
+    </div>
+    <div>
+      <%= f.label :best_age, "お子様の月齢" %>
+      <%= f.select :best_age, ["5-6ヶ月", "7-8ヶ月", "9-12ヶ月"], {selected: @best_age} %>    
+    </div>
+    <div>
+      <%= f.check_box :ng_food, { multiple: true}, "たまご"%>
+      <%= label :ng_food, "たまご" %>
+      
+      <%= f.check_box :ng_food, { multiple: true}, "牛乳"%>
+      <%= label :ng_food, "牛乳" %>
+      
+      <%= f.check_box :ng_food, { multiple: true}, "パン"%>
+      <%= label :ng_food, "パン" %>
+      
+      <%= f.check_box :ng_food, { multiple: true}, "いか"%>
+      <%= label :ng_food, "いか" %>
+
+      <%= f.check_box :ng_food, { multiple: true}, "トマト"%>
+      <%= label :ng_food, "トマト" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "作成" %>
+    </div>
+  <% end %>
+</div>

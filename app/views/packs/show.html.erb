@@ -1,0 +1,4 @@
+<% @menu.each do |menu| %>
+  <%= link_to menu.name, menu_path(id: menu.id) %>
+  <%= image_tag "/#{menu.image}" %>
+<% end %>
