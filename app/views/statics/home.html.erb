@@ -7,8 +7,9 @@
   </div>  
   <div class="row">
     <div class = "col-sm-3 text-center">
-      <%= link_to  "新規登録", new_user_registration_path, class: 'btn btn-info rounded-lg  m-2' %>
-      <%= link_to  "ログイン", new_user_session_path, class: 'btn btn-success rounded-lg  m-2' %>
+      <%= link_to  "新規登録", new_user_registration_path, class: 'btn btn-info rounded-lg col-lg-4 mt-2' %>
+      <%= link_to  "ログイン", new_user_session_path, class: 'btn btn-success rounded-lg  col-lg-4 mt-2' %>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-success rounded-lg  m-3" %>
     </div>
   </div>
 </div>

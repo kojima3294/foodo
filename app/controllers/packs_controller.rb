@@ -21,7 +21,7 @@ class PacksController < ApplicationController
       @packs = @pack.user_menus.create(pack_id: @pack.id, menu_id: p)
     end
     flash[:success] = "保存しました！"
-    redirect_to session_path(current_user)
+    redirect_to static_path(current_user)
   end
 
   def edit
@@ -46,7 +46,7 @@ class PacksController < ApplicationController
     if pack.user_id == current_user.id
       pack.destroy
       flash[:success] = "削除しました！"
-      redirect_to session_path(current_user)
+      redirect_to static_path(current_user)
     end
   end
 
