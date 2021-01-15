@@ -21,12 +21,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     @user = User.find_by(id: params[:id])
-    #画像データが送信された場合
+    # 画像データが送信された場合
     if params[:image]
-      #データベースに保存するファイル名はユーザーのid.jpgとする
+      # データベースに保存するファイル名はユーザーのid.jpgとする
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
   end
 
@@ -45,6 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :birth_date, :password])

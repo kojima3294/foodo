@@ -1,20 +1,58 @@
-<div class="login-content">
-  <div>
-    <% if @user.image? %>
-      <%= image_tag @user.image.thumb.url %>
-    <% else %>
-      <%= image_tag("no-image.png") %>
-    <% end %>
-    <%= @user.name %>
-    <h3>お子様の月齢：<%=@age%>ヶ月</h3>
+<% provide(:title, "ユーザー")%>
+<div class = "container-fuild bg-white mt-5">
+  <div class = "container pb-5 bg-light rounded pt-3">
+    <div class = "row mx-auto">
+      <div class=" col-12">
+        <% if @user.image? %>
+          <%= image_tag @user.image.thumb.url, class: "mx-auto d-block rounded-circle" %>
+        <% else %>
+          <%= image_tag"/no-image.png", class: "mx-auto d-block rounded-circle" %>
+        <% end %>
+      </div>
+      <div class = "mt-3 col-sm-4 offset-sm-4">
+        <div class = "prof mx-auto text-center w-sm-50">
+          <h4><%= @user.name %></h4>
+        </div>
+        <div class = "prof mx-auto text-center w-sm-50">
+          <h4><%=@age%>ヶ月</h4>
+        </div>
+      </div>
+      <div class = "col-sm-4 text-center">
+        <%= link_to new_menu_path do%>
+          <i class="fas fa-utensils fa-3x fa-border menu_icon"></i>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div>
-    <h2>お食事メニュー</h2>
-    <div>
-      <% @packs.each do |pack| %>
-       <%= link_to pack.name, pack_path(id: pack.id) %>
-      <% end %>
-    </div>  
+  <div class = "container shadow p-3 mb-5 mt-5 bg-light rounded">
+    <h2>献立一覧</h2>
+    <% if @packs.present? %>
+      <table class="table table-hover text-center">
+        <thead >
+          <tr class = "row">
+            <th class = "col-2">NO</th>
+            <th class = "col-6">献立名</th>
+            <th class = "col-2">作成日</th>
+            <th class = "col-2">削除する</th>
+          </tr>
+        </thead>
+        <% @packs.each_with_index do |pack, i| %>
+          <tbody>
+            <tr class = "row">
+              <th class = "col-2"><%= i+1 %></th>
+              <td class = "col-6 text-body"><%= link_to pack.name, pack_path(pack.id), class: "text-dark prof_link" %></td>
+              <td class = "col-2"><%= pack.created_at.strftime('%y/%m/%d') %></td>
+              <td class = "col-2"><%= button_to "削除", pack_path(pack.id), data: { confirm: "削除してよろしいですか?" }, method: :delete %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+  <div class = "container mb-4">
+    <%= link_to 'javascript:history.back()' do %>
+      <i class="mt-3 fas fa-arrow-circle-left fa-2x"></i>
+    <% end %>
   </div>
 </div>
       

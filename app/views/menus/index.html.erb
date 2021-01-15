@@ -1,2 +1,20 @@
-<h1>Menus#show</h1>
-<p>Find me in app/views/menus/show.html.erb</p>
+<% provide(:title, "メニュー一覧")%>
+<div class = "container bg-light my-5">
+  <h1 class = "border-bottom border-primary pt-4">メニュー一覧</h1>
+  <div class="field form-group  mt-4">
+    <div class="row">
+      <% @menus.each do |menu| %>
+        <div class = "col-md-4 text-center quantity prof_link my-3">
+          <%= link_to menu_path(menu.id) do%>
+            <%= image_tag "/#{menu.image}", class: "img-fluid rounded" %>
+            <h5 class = text-dark><%= menu.name %></h5><br/>
+          <% end %>
+          <%= menu.best_age %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'javascript:history.back()' do %>
+      <i class="mt-3 fas fa-arrow-circle-left fa-2x"></i>
+    <% end %>
+  </div>
+</div>

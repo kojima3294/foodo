@@ -1,46 +1,44 @@
 <% provide(:title, "ホーム") %>
-<% if user_signed_in? %>
-  <div class="login-content">
-    <div>
-      <% if @user.image? %>
-        <%= image_tag @user.image.thumb.url %>
-      <% else %>
-        <%= image_tag 'no-image.png' %>
-      <% end %>
-      <%=link_to @user.name, session_path(@user) %>
-      <h3>お子様の月齢：<%=@age%>ヶ月</h3>
+<div class= "container-fuild main-container mt-0">
+  <div class = "row">
+    <div class ="col-sm-3 mt-5">
+      <h1 class="text-white bg-primary text-center rounded-pill">Foodo</h1>
     </div>
-    <div>
-      <h2>お食事メニュー</h2>
+  </div>  
+  <div class="row">
+    <div class = "col-sm-3 text-center">
+      <%= link_to  "新規登録", new_user_registration_path, class: 'btn btn-info rounded-lg  m-2' %>
+      <%= link_to  "ログイン", new_user_session_path, class: 'btn btn-success rounded-lg  m-2' %>
     </div>
   </div>
-<% else %>
-  <div>
-    <div class="main-content">
-      <h1 class="text-white bg-primary w-25 text-center rounded-pill">Foodo</h1> 
-      <div class="text-center w-25" >
-        <%= link_to  "新規登録",  new_user_registration_path, class: 'btn btn-info m-2' %>
-        <%= link_to  "ログイン", new_user_session_path, class: 'btn btn-success m-2' %>
-      </div> 
+</div>
+<div class="container text-center">
+  <div class ="row">
+    <h1 class="text-white  bg-info col-md-6 offset-md-3 mt-3 rounded-pill" id="about">Foodoとは</h1>
+    <div class = "d-block mx-auto">
+      <p class ="text-center">幼児食と一言で言っても実際は年齢によっても違いが出てきますし、<br class = "d-inline d-md-none"/>アレルギー食材は使用できない等、<br>毎日の幼児食を決めるのに疲れてしまっている<br class = "d-inline d-md-none"/>ママやパパはたくさんいます。</p>
     </div>
-    <div class="sub-content container text-center">
-      <h1 class="text-white bg-info" id="about">Foodoとは</h1>
-      <p>幼児食と一言で言っても実際は年齢によっても違いが出てきますし、摂りたい栄養素を効率よく摂るにはどうしたらいいのかと悩むものです。<br>子どもによっても好き嫌いがあったり、食べムラがあるので、毎日の幼児食を決めるのに疲れてしまっているママやパパはたくさんいます。
-      </p>
-      <div class="row font-weight-bold">
-        <div class="col-xl-12 my-4">   
-          <h2>1週間分の献立が自動作成</h2>
-            <p> 月齢・何食/日を入力するだけで1週間分の献立がカンタン作成</p>
+    <div class ="container-fuild">
+      <div class=" row font-weight-bold">
+        <div class="col-lg-4 my-4 bg-light">
+          <%= image_tag "/月齢.jpeg", class: "rounded"  %>
+          <h2>月齢別の献立</h2>
+            <p> 月齢に合った献立を用意しています。</p>
         </div>
-        <div class="col-xl-12 my-4">
-          <h2>食材リストを一括表示</h2>
-            <p>献立から必要な食材リストを表示可能</p>
+
+        <div class="col-lg-4 my-4 bg-light">
+          <%= image_tag "/1週間.jpg"%>
+          <h2>最大1週間分の作成可能</h2>
+            <p>最大1週間分の献立作成可能</p>
         </div>
-        <div class="col-xl-12 my-4">
-          <h2>アレルギー食材は入れない等、要望可能</h2>
-            <p>アレルギー食材や嫌いな食材などを入力するだけで献立に入れないことも可能</p>
+        <div class="col-lg-4 my-4 bg-light">
+          <%= image_tag "/アレルギー.png" %>
+          <h2>アレルギー食材除外</h2>
+            <p>アレルギー食材や嫌いな食材などを入力するだけで<br class="d-inline d-sm-none"/>
+            献立に入れないことも可能</p>
         </div>  
       </div>
-    </div>
+    </div>  
   </div>
-<% end %>
+</div>
+
