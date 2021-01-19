@@ -8,9 +8,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :birth_date, presence: true
-  
+
   def self.guest
-    find_or_create_by!(name:"ゲストユーザー", email: "guest@example.com", birth_date: "2020-05-01") do |user|
+    find_or_create_by!(name: "ゲストユーザー", email: "guest@example.com", birth_date: "2020-05-01") do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end

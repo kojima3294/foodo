@@ -7,8 +7,8 @@ require 'factory_bot'
 require 'devise'
 require 'capybara/rspec'
 require File.expand_path("spec/support/controller_macros.rb")
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file}
- begin
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
+begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip

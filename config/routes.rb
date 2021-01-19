@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "statics#home"
-  resources :statics, only: [:home,:show]
-  resources :menus
+  resources :statics, only: [:home, :show]
+  resources :menus, only: [:new, :show, :index]
   devise_for :users
 
   devise_scope :user do

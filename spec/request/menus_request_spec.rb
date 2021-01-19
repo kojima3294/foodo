@@ -1,6 +1,7 @@
 RSpec.describe "Menus", type: :request do
-  let!(:user) {create(:user)}
-  let!(:menu) {create(:menu)}
+  let!(:user) { create(:user) }
+  let!(:menu) { create(:menu) }
+
   before do
     sign_in user
   end
@@ -10,11 +11,11 @@ RSpec.describe "Menus", type: :request do
       get new_menu_path
     end
 
-    it "new_menu_pathの表示成功する"do
+    it "new_menu_pathの表示成功する" do
       expect(response).to have_http_status(200)
     end
 
-    it "「献立作成フォーム」の文言が表示される"do
+    it "「献立作成フォーム」の文言が表示される" do
       expect(response.body).to include "献立作成フォーム"
     end
 
@@ -24,10 +25,10 @@ RSpec.describe "Menus", type: :request do
       expect(response).to redirect_to "/users/sign_in"
     end
   end
-  
+
   describe "GET/menus_path" do
     before do
-     get menus_path
+      get menus_path
     end
 
     it "menus_pathの表示成功する" do
@@ -44,7 +45,7 @@ RSpec.describe "Menus", type: :request do
 
     it "メニューの対象月齢が表示される" do
       expect(response.body).to include menu.best_age
-    end 
+    end
   end
 
   describe "GET/menu_path" do

@@ -20,7 +20,7 @@ class PacksController < ApplicationController
     @menu_ids.each do |p|
       @packs = @pack.user_menus.create(pack_id: @pack.id, menu_id: p)
     end
-    flash[:success] = "保存しました！"
+    flash[:notice] = "保存しました！"
     redirect_to static_path(current_user)
   end
 
@@ -35,6 +35,7 @@ class PacksController < ApplicationController
     @pack = Pack.find(params[:id])
     if @pack.user_id == current_user.id
       @pack.update(pack_params)
+      flash[:notice] = "変更しました！"
       redirect_to pack_path(@pack)
     else
       render "show"
@@ -45,12 +46,10 @@ class PacksController < ApplicationController
     pack = Pack.find(params[:id])
     if pack.user_id == current_user.id
       pack.destroy
-      flash[:success] = "削除しました！"
+      flash[:notice] = "削除しました！"
       redirect_to static_path(current_user)
     end
   end
-
-  private
 
   def user_params
     params.permit(:name, :image, :recipe, :food_stuff, :best_age, :quantity)

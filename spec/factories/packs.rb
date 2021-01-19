@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :pack do
-    name {"テストパック"}
+    name { "テストパック" }
     association :user
   end
 end

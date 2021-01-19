@@ -1,8 +1,8 @@
 RSpec.feature "Menus", type: :feature do
-  given!(:menu) {create(:menu)}
-  
+  given!(:menu) { create(:menu) }
+
   background do
-    User.create!(name:"テストユーザー", email:'user@example.com', birth_date:"2020-05-01",password: 'password')
+    User.create!(name: "テストユーザー", email: 'user@example.com', birth_date: "2020-05-01", password: 'password')
     login
   end
 

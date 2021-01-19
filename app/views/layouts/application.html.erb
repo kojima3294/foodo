@@ -19,10 +19,10 @@
   <body>
     <%= render "layouts/header" %>
     <% if notice %>
-      <p><%= notice %></p>
+      <p class = "alert alert-success"><%= notice %></p>
     <% end %>  
     <% if alert %>
-      <p><%= alert %></p>
+      <p class = "alert alert-warning"><%= alert %></p>
     <% end %>
     <%= yield %>
     <%= render "layouts/footer" %>

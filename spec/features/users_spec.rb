@@ -1,7 +1,7 @@
 RSpec.feature "Users", type: :feature do
-  given!(:user) {create(:user)}
+  given!(:user) { create(:user) }
   background do
-    User.create!(name:"テストユーザー", email:'user@example.com', birth_date:"2020-05-01",password: 'password')
+    User.create!(name: "テストユーザー", email: 'user@example.com', birth_date: "2020-05-01", password: 'password')
   end
 
   scenario "新規登録する" do
@@ -16,8 +16,8 @@ RSpec.feature "Users", type: :feature do
 
   scenario "誤ったパスワードではログインが失敗する" do
     visit new_user_session_path
-    fill_in "user[email]", with:"user@example.com"
-    fill_in "user[password]", with:"bassword"
+    fill_in "user[email]", with: "user@example.com"
+    fill_in "user[password]", with: "bassword"
     find(".btn-info").click
     expect(page).to have_content "Eメールまたはパスワードが違います。"
   end
