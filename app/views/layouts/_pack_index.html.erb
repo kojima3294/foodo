@@ -1,0 +1,25 @@
+<div class = "container shadow p-3 mb-5 mt-5 bg-light rounded">
+  <h2>献立一覧</h2>
+  <% if @packs.present? %>
+    <table class="table table-hover text-center">
+      <thead >
+        <tr class = "row">
+          <th class = "col-2">NO</th>
+          <th class = "col-6">献立名</th>
+          <th class = "col-2">作成日</th>
+          <th class = "col-2">削除する</th>
+        </tr>
+      </thead>
+      <% @packs.each_with_index do |pack, i| %>
+        <tbody>
+          <tr class = "row">
+            <th class = "col-2"><%= i+1 %></th>
+            <td class = "col-6 text-body"><%= link_to pack.name, pack_path(pack.id), class: "text-dark prof_link" %></td>
+            <td class = "col-2"><%= pack.created_at.strftime('%y/%m/%d') %></td>
+            <td class = "col-2"><%= button_to "削除", pack_path(pack.id), data: { confirm: "削除してよろしいですか?" }, method: :delete %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% end %>
+</div>

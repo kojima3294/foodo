@@ -1,0 +1,38 @@
+@import "bootstrap";
+
+.header{
+  margin-bottom: 0
+}
+.main-container{
+  background: url(/backimg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 850px;
+}
+.text-white{
+  font-size: auto;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+.footer{
+  height: 50px;
+}
+.prof{
+ border-bottom: solid 2px #999999;
+}
+.prof_link a:hover{
+  opacity: 0.7;
+  text-decoration: none;
+  }
+.menu_icon{
+  color: orange;
+}
+.quantity{
+  line-height: 0.5em;
+}
+.recipe{
+  margin-left: 1.4em;
+	text-indent: -1.4em;
+}

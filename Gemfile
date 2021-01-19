@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 gem 'bootstrap', '~> 4.5.0'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-sass', '3.4.1'
 gem 'jquery-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -35,3 +37,8 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "devise"
+gem 'config'
+gem 'happybirthday'
+gem "carrierwave"
+gem 'mini_magick'

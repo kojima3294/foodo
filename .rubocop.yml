@@ -13,3 +13,7 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
+
+# "Line is too long"の最大値200へ
+Metrics/LineLength:
+  Max: 200

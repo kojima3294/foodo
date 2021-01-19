@@ -1,0 +1,27 @@
+<% provide(:title, "メニュー")%>
+<div class = "container bg-light">
+  <div class = "pt-3">
+    <%= image_tag "/#{@menu.image}", class: "img-fluid rounded mx-auto d-block" %>
+  </div>
+  <div class = "text-center">
+    <div>
+      <h3><%= @menu.name%></h3>
+    </div>
+    <div>
+      <h5><%= "対象月齢  #{@menu.best_age}" %></h5>
+    </div>
+    <div class = "row py-1">
+      <div class = "col-sm-4 offset-2 text-left">
+        <h4>---材料---</h4> 
+        <%= simple_format@menu.quantity %>
+      </div>
+      <div class = "col-sm-6 text-left">
+        <h4>---作り方---</h4>
+        <h6><%= simple_format(@menu.recipe) %></h6>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'javascript:history.back()' do %>
+    <i class="mt-3 fas fa-arrow-circle-left fa-2x"></i>
+  <% end %>
+</div>

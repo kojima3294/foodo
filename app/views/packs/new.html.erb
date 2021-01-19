@@ -1,0 +1,31 @@
+<% provide(:title, "献立作成")%>
+<div class = "container bg-light my-5">
+  <h1 class = "border-bottom border-primary pt-4">献立作成</h1>
+  <div class="field form-group  mt-4">
+    <%= form_for(@pack) do |f| %>
+      <div class="row">
+        <% @random.each do |menu| %>
+          <div class = "col-md-4 text-center quantity prof_link my-3">
+            <%= hidden_field_tag "user_id", current_user.id %>
+            <%= hidden_field_tag "menu_ids[]", menu.id %>
+            <%= link_to menu_path(menu.id) do%>
+              <%= image_tag "/#{menu.image}", class: "img-fluid rounded" %>
+              <h5 class = text-dark><%= menu.name %></h5><br/>
+            <% end %>
+            <%= simple_format(menu.quantity) %>
+          </div>
+        <% end %>
+      </div>
+      <div class = "field form-group"> 
+        <%= f.label :name, "献立名" %>
+        <%= f.text_field :name, value:"#{Time.current.to_date}作成(#{@count}食分)", class: "form-control col-lg-5" %>
+      </div>
+      <div class="actions mt-4">
+        <%= f.submit "保存", class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <%= link_to 'javascript:history.back()' do %>
+      <i class="mt-3 fas fa-arrow-circle-left fa-2x"></i>
+    <% end %>
+  </div>
+</div>

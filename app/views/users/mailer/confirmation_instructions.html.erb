@@ -1,0 +1,5 @@
+<p>ようこそ <%= @email %>!</p>
+
+<p>以下のリンクをクリックする事で認証する事ができます。:</p>
+
+<p><%= link_to '認証', confirmation_url(@resource, confirmation_token: @token) %></p>

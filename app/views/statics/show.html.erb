@@ -1,0 +1,33 @@
+<% provide(:title, "ユーザー")%>
+<div class = "container-fuild bg-white mt-5">
+  <div class = "container pb-5 bg-light rounded pt-3">
+    <div class = "row mx-auto">
+      <div class=" col-12">
+        <% if @user.image? %>
+          <%= image_tag @user.image.thumb.url, class: "mx-auto d-block rounded-circle" %>
+        <% else %>
+          <%= image_tag"/no-image.png", class: "mx-auto d-block rounded-circle" %>
+        <% end %>
+      </div>
+      <div class = "mt-3 col-sm-4 offset-sm-4">
+        <div class = "prof mx-auto text-center w-sm-50">
+          <h4><%= @user.name %></h4>
+        </div>
+        <div class = "prof mx-auto text-center w-sm-50">
+          <h4><%=@age%>ヶ月</h4>
+        </div>
+      </div>
+      <div class = "col-sm-4 text-center">
+        <%= link_to new_menu_path do%>
+          <i class="fas fa-utensils fa-3x fa-border menu_icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/pack_index" %>
+  <div class = "container mb-4">
+    <%= link_to 'javascript:history.back()' do %>
+      <i class="mt-3 fas fa-arrow-circle-left fa-2x"></i>
+    <% end %>
+  </div>
+</div>     
