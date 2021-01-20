@@ -8,7 +8,7 @@
       <% @menu.each do |menu| %>
         <div class = "col-md-4 text-center quantity prof_link my-3">
           <%= link_to menu_path(menu.id) do%>
-            <%= image_tag "/#{menu.image}", class: "img-fluid rounded" %>
+            <%= image_tag "/images/#{menu.image}", class: "img-fluid rounded" %>
             <h5 class = text-dark><%= menu.name %></h5><br/>
           <% end %>
           <%= simple_format(menu.quantity) %>

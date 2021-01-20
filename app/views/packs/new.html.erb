@@ -9,7 +9,7 @@
             <%= hidden_field_tag "user_id", current_user.id %>
             <%= hidden_field_tag "menu_ids[]", menu.id %>
             <%= link_to menu_path(menu.id) do%>
-              <%= image_tag "/#{menu.image}", class: "img-fluid rounded" %>
+              <%= image_tag "/images/#{menu.image}", class: "img-fluid rounded" %>
               <h5 class = text-dark><%= menu.name %></h5><br/>
             <% end %>
             <%= simple_format(menu.quantity) %>
