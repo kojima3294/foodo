@@ -25,11 +25,11 @@
 ### 作成した献立はトップページから確認可能
   
 ## 開発環境  
-・ Ruby 2.6.5
-・ Ruby on Rails 5.2.4.4
-・ RSpec
-・ Docker
-・ Heroku
+・ Ruby 2.6.5  
+・ Ruby on Rails 5.2.4.4  
+・ RSpec  
+・ Docker  
+・ Heroku  
 ・ PostgreSQL
 
 ## 本番環境URL  
