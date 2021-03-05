@@ -58,9 +58,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-<<<<<<< HEAD
+
   config.hosts << ".herokuapp.com"
-=======
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
@@ -71,5 +70,4 @@ Rails.application.configure do
     :password => "Settings.gmail[:password]", #gmailパスワード
     :authentication => 'login',
   }
->>>>>>> dev3
 end
